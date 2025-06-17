@@ -91,7 +91,7 @@ Then open the app in your browser at:
 
 ## 🧪 Example Run
 
-![App Screenshot](https://via.placeholder.com/800x400?text=Streamlit+Flashcard+App](https://github.com/AmanYadav038/LLM-Powered-Flashcard-Generator/blob/main/SS%20FG/Screenshot%202025-06-17%20213406.png)
+![App Screenshot][(https://via.placeholder.com/800x400?text=Streamlit+Flashcard+App](https://github.com/AmanYadav038/LLM-Powered-Flashcard-Generator/blob/main/SS%20FG/Screenshot%202025-06-17%20213406.png)]
 
 You can try it with `examples/vehicles_500_words.pdf` or paste your own text.
 
