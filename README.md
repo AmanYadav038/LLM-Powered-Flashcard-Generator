@@ -1,66 +1,135 @@
+
 # 🧠 LLM-Powered Flashcard Generator
 
-An intelligent tool that generates question-answer flashcards from educational content using large language models (LLMs). Paste text or upload a PDF to instantly get structured flashcards you can use for studying or revision.
-
-![Streamlit UI Screenshot](https://via.placeholder.com/800x400.png?text=Flashcard+Generator+UI)
+The **LLM-Powered Flashcard Generator** is a modern, intelligent study tool that allows students, educators, and content creators to generate **question-answer flashcards** automatically from educational text or PDF files. It uses advanced NLP models like **T5** for question generation and **BART** for answer extraction, wrapped inside an intuitive **Streamlit web app**.
 
 ---
 
-## 🚀 Features
+## 💡 How It Works
 
-- 📄 Accepts raw content from **PDF files** or **text input**
-- 🧠 Generates meaningful **question-answer flashcards**
-- 🔍 Supports **subject-based prompting**
-- 🌐 Uses **T5/BART for Q-generation** and **BERT for ranking**
-- 📥 Download flashcards as **CSV** or **JSON**
-- 🎨 Stylish and interactive **Streamlit interface**
+### 🔧 Core Logic (`main.py`)
+
+The core functionality involves:
+
+1. **Sentence Tokenization** using NLTK to divide content into logical units.
+2. **Question Generation** using the `lmqg/t5-large-squad-qg` model.
+3. **Relevance Ranking** of questions via **Sentence-BERT embeddings**.
+4. **Answer Extraction** using the `valhalla/bart-large-finetuned-squadv1` model.
+5. **PDF support**: Users can also upload educational PDFs — text is extracted using `PyMuPDF`.
+6. **Flashcard Packaging**: Q&A pairs are combined and returned for display or download.
 
 ---
 
-## 🛠 Setup Instructions
+### 🖥️ User Interface (`streamlit_app.py`)
 
-### 📦 Requirements
+- Paste educational content or upload a `.pdf`
+- Choose how many flashcards to generate
+- Optional: Select a **subject type** to guide the prompt
+- View generated flashcards in a styled UI
+- Export to **CSV** or **JSON**
+
+---
+
+## 📦 Installation & Setup
+
+### 🔁 Clone the Repository
 
 ```bash
 git clone https://github.com/AmanYadav038/LLM-Powered-Flashcard-Generator.git
 cd LLM-Powered-Flashcard-Generator
+```
 
-# Set up a virtual environment (optional but recommended)
+### 🐍 Set Up Environment
+
+(Optional but recommended)
+
+```bash
 python -m venv venv
-venv\Scripts\activate   # On Windows
-# source venv/bin/activate  # On Linux/Mac
+venv\Scripts\activate      # On Windows
+# source venv/bin/activate  # On Linux/macOS
+```
 
-# Install dependencies
+### 📥 Install Dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
+---
 
-##Run the App
+## ▶️ Running the Streamlit App
+
+```bash
 streamlit run streamlit_app.py
+```
 
-#Example Input (PDF or Text)
-Topic : Vehicles
-(PDF: examples/vehicles_500_words.pdf)
+Then open the app in your browser at:  
+📍 `http://localhost:8501`
 
-Generated Flashcards Example:
-[
-  {
-    "question": "What is a vehicle?",
-    "answer": "machines that transport people or goods from one place to another"
-  },
-  {
-    "question": "What type of vehicles are there?",
-    "answer": "many"
-  },
-  {
-    "question": "What is the most common type of vehicle?",
-    "answer": "Cars"
-  },
-  {
-    "question": "What are some of the benefits of electric vehicles?",
-    "answer": "They produce zero emissions, run more quietly,\nand often require less maintenance than traditional internal combustion engine vehicles"
-  }
-]
+---
 
-#Export Options 
-1.flashcards.csv
-2.flashcards.json
+## 📄 Example API Input/Output (Internally)
+
+```json
+{
+  "question": "What is the primary function of vehicles?",
+  "answer": "To transport people or goods from one place to another."
+}
+```
+
+---
+
+## ✨ Features
+
+- 📄 **Upload PDFs** and extract text
+- 📚 **Paste raw educational content**
+- 🎯 Generate **flashcards based on subject relevance**
+- 💾 Export to **CSV** or **JSON**
+- 💬 Clean and interactive **Streamlit interface**
+
+---
+
+## 🧪 Example Run
+
+![App Screenshot](https://via.placeholder.com/800x400?text=Streamlit+Flashcard+App)
+
+You can try it with `examples/vehicles_500_words.pdf` or paste your own text.
+
+---
+
+## 🛣️ Future Improvements
+
+- ✅ Add support for **multi-language flashcards**
+- ✅ Fine-tune custom models on educational corpora
+- 🔄 Feedback mechanism for students
+- 🔖 Export flashcards to **Anki/Quizlet** formats
+- ⚡ Add **parallel processing** to speed up generation
+
+---
+
+## 📤 Exports
+
+- `flashcards.csv` — for spreadsheets or sharing
+- `flashcards.json` — for developer use or integration
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** — feel free to use, modify, and contribute!
+
+---
+
+## 🎥 Demo Video (Optional)
+
+If you have a demo video, add it like this:
+
+```markdown
+[![Watch the demo](https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg)](https://youtu.be/VIDEO_ID)
+```
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome. For major changes, please open an issue first.
